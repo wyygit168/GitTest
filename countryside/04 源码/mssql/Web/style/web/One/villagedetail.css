@@ -1,0 +1,21 @@
+﻿.villagedetail_1 {width: 960px;height: auto;padding: 0; margin: 10px 0 0; overflow: hidden;}
+.villagedetail_1_left {background-image: url("Images/List/list_top_465_35.png");height: 35px;  margin: 0 0 0 -1px; padding: 0;  width: 465px;}
+.villagedetail_1_height { float: left; height: 300px; width: 463px;border: 1px solid #3680AF; border-width: 0 1px 1px; }
+.villagedetail_1_vidimage {  padding: 10px; text-align: center; }
+.villagedetail_1_left_content ul { line-height: 25px; margin:15px 30px 0 30px;   }
+.villagedetail_2 {  height: auto; margin-top: 10px; padding: 0; width: 960px; }
+.villagedetail_2_top{ background-image: url("Images/List/list_top_960_8.png");width:960px; height: 8px;}
+.villagedetail_2_header img {  padding: 20px; }
+.villagedetail_2_header { border: #3680AF 1px solid;   border-style: none solid;  border-width: 0 1px; color: #3680AF; text-align: center; }
+.divtitle {color:#333;font-size:32px;padding-top:20px;}
+.divSlide { margin-left:80px; overflow:hidden;width:795px; }
+.divSlide ul{list-style:none;width:2999px;}
+.divSlide ul li{float:left;margin-left:5px;}
+.divimgmore {padding-bottom:10px; padding-right:30px; text-align:right; }
+.divimgtitle {color:#333;} 
+.villagedetail_2_content {background-image: url("Images/VillageDetail/vinelabel_496_36.png");background-repeat: no-repeat;  border: 1px solid #3680AF; border-style: none solid; border-width: 0 1px;height: auto;overflow: hidden;padding-bottom: 65px;}
+.villagedetail_2_content h1 { color: #3680AF; font-size: 18px; padding-bottom: 30px;  padding-left: 90px;  padding-top: 10px; }
+.villagedetail_2_content p { line-height: 25px; padding-left: 66px;padding-right: 66px;text-indent: 0;}
+.villagedetail_2_bot{ background-image: url("Images/List/list_bottom_960_8.png");width:960px; height: 8px;}
+.say { color: #3680AF; font-size: 22px; font-weight: bold;  line-height: 35px; padding-left: 0; text-align: left;  width: 960px; }
+.tdd {font-size: 14px;line-height: 27px; padding-bottom: 15px; padding-left: 20px; padding-top: 5px;width: 920px;}

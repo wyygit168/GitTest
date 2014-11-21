@@ -1,0 +1,21 @@
+--19  webagricultureinfo 农科信息
+
+/* 农科信息*/
+CREATE TABLE webagricultureinfo (
+    AutoId        int            IDENTITY(1,1),
+    CustomerID    int            DEFAULT -1 NOT NULL,
+    ProvinceID    int            DEFAULT 0 NOT NULL,
+    CityID        int            DEFAULT 0 NOT NULL,
+    CountyID      int            DEFAULT 0 NOT NULL,
+    TownID        int            DEFAULT 0 NOT NULL,
+    Status        tinyint        DEFAULT 0 NOT NULL,
+    OrderValue    int            DEFAULT 0 NOT NULL,
+    Title         varchar(50)    DEFAULT '' NOT NULL,
+    Content       ntext          DEFAULT '' NOT NULL,
+    CreatorID     int            DEFAULT 0 NOT NULL,
+    CreateDate    datetime       DEFAULT 2014-01-01 NOT NULL,
+    Modifier      int            DEFAULT 0 NOT NULL,
+    ModifyDate    datetime       DEFAULT 2014-01-01 NOT NULL,
+    CONSTRAINT PK23 PRIMARY KEY NONCLUSTERED (AutoId)
+)
+go 

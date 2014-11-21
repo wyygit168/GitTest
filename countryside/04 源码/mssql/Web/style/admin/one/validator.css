@@ -1,0 +1,60 @@
+.onshow
+{
+    background:url(images/validator/onshow.gif) no-repeat; 
+	font-size: 12px;
+ 	display:inline-block;
+	border:1pt solid #ccc;
+	padding:3px 5px 0 20px;
+    padding-bottom:1px !important;
+    height:20px;
+    height:17px !important;
+    line-height:17px;
+}
+.onfocus
+{
+    background:White url(images/validator/onfocus.gif) no-repeat; 
+	font-size: 12px;
+ 	display:inline-block;
+	border:1pt solid #ccc;
+	padding:3px 5px 0 20px;
+    padding-bottom:1px !important;
+    height:20px;
+    height:17px !important;
+    line-height:17px;
+}
+.onerror
+{
+    background:#FFF2E9 url(images/validator/onerror.gif) no-repeat;
+	font-size: 12px; 
+	display:inline-block; 
+	border:1pt solid #ccc;
+	padding:3px 5px 0 20px;
+    padding-bottom:1px !important;
+    height:20px;
+    height:17px !important;
+    line-height:17px;
+}
+.oncorrect
+{
+    background:#E9FFEB url(images/validator/oncorrect.gif) no-repeat;
+	font-size: 12px;
+	display:inline-block;
+	border:1pt solid #ccc;
+    padding:3px 5px 0 20px;
+    padding-bottom:1px !important;
+    height:20px;
+     height:17px !important;
+    line-height:17px;
+}
+.onload
+{
+    background:#E9FFEB url(images/validator/onLoad.gif) no-repeat 3px 3px;
+	font-size: 12px;
+ 	display:inline-block;
+	border:1pt solid #ccc;
+	padding:3px 5px 0 20px;
+    padding-bottom:1px !important;
+    height:20px;
+    height:17px !important;
+    line-height:17px;
+} 

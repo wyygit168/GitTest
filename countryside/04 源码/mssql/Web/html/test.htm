@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>   
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />   
+<title>css文字截取</title>   
+<style type="text/css">   
+body{font-size:13px;color:#8c966b;}    
+div{clear:both;width:340px;border:1px solid #333;margin:3px;padding:3px;}    
+div a{color:#8c966b;text-decoration:none;}    
+div a:hover{text-decoration:underline;}    
+
+div a{display:block;width:310px;white-space:nowrap;overflow:hidden;float:left;    
+    -o-text-overflow: ellipsis;    /* for Opera */    
+    text-overflow:ellipsis;        /* for IE */    
+}    
+div:after{content:"...";padding-left:3px;font-size:12px;}/* for Firefox */    
+</style>   
+</head>   
+
+<body>   
+用css来实现自动截取文字，不需要后台程序和JS的使用 
+
+
+好处是：有利于内容完整性，有利于SEO，无需后台程序处理，可以在前台随时调节要截取的长度。 
+
+<div><a href="#">不好的地方：不能自动判断截取长度，当字符很短的时候在Firefox中也会生成后面的省略符号。</a></div>   
+<div><a href="#">另外在设置截取宽度的时候，要注意，尽量让文字截取完整</a></div>   
+
+</body>   
+</html>

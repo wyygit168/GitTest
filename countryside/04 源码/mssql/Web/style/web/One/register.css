@@ -1,0 +1,22 @@
+﻿#Main { clear: both; height: auto; margin: 8px auto; width: 960px; font-family:微软雅黑; } 
+.register { width: 100%; float: left; margin-top: 15px; overflow: hidden; } 
+.reg_top{height: 46px;background: url(Images/Register/regtop_right.jpg) no-repeat top right;font-size: 14px;color: #3276BC;font-weight: bold;line-height: 46px;}
+.reg_top_title {font-size: 18px;height: 46px;background: url(Images/Register/regtop_left.jpg) no-repeat left top;line-height: 46px;text-indent: 20px;}
+.reg_titleinfor {border-bottom: 1px solid #5797D7;font-size: 14px;height: 30px;padding-left: 5px;color: #1258A0;font-weight: bold;margin-top: 5px;_margin-top: 0px;text-indent: 15px;padding-top: 10px;}
+.reg_titleinfor span { color: #FF0000; font-weight: normal; font-size: 12px; }
+.reg_table { width:100%;line-height: 28px; color: #000; font-size: 16px; margin: 10px 0px 5px 0px; padding: 0; border: 0; font-weight: inherit; font-style: inherit; text-decoration: none; }
+.reg_table td{ padding-left:3px; height:28px;}
+.reg_table .spansign{ color:#FF0000; padding-left:5px; padding-right:5px; }
+.reg_table a{ text-decoration:underline; color:#FF0000;}
+.font_r { text-align: right; }
+.tdleft {text-align: right;width:19%; }
+.tdcenter {  width:17%;}
+.tdright {width:64%;color: #1476BD; }
+.checkcodetxt{  float:left; }
+.checkcodeImage {  float:right; margin-left:10px;margin-top:3px; cursor:pointer; }
+.input_20txt {height: 20px;background: url(Images/Register/input_bg.gif) no-repeat left top;font-size: 18px; font-family: Arial, Helvetica, sans-serif;font-weight: 700; color: #333333;padding: 0 2px;line-height: 20px;border-top: 1px solid #C2C2C2;border-left: 1px solid #C2C2C2;border-bottom: 1px solid #EAEAEA;border-right: 1px solid #EAEAEA;text-align: left;}
+.tj1 { margin: 0 auto; text-align: center; border-top: 1px dotted #5797D7; padding-top: 10px; }
+a.button_c:link, a.button_c:visited { height: 31px; font-weight: bold; line-height: 31px; text-decoration: none; color: #fff; display: inline-block; display: -moz-inline-stack; padding-left: 20px; vertical-align: middle; margin-right: 5px; zoom: 1; background: url(Images/Register/btn_bg1.png) left top no-repeat; }
+a.button_c span { _margin-top: 0px; line-height: 31px; height: 31px; padding-right: 20px; cursor: pointer; display: -moz-inline-stack; display: inline-block; _font-size: 18px; _font-family: Arial; background: url(Images/Register/btn_bg1.png) right top no-repeat #fff; _background: url(Images/Register/btn_bg1.png) right top no-repeat #fff; }
+a.button_c span ins { font-size: 12px; text-decoration: none; color: #fff; }
+.tishititle { float:left;}

@@ -1,0 +1,10 @@
+﻿.tblset{width: 100%;border:solid 1px #CCCCCC; font-size:16px; border-collapse: collapse;  margin: 5px 0 0 8px;  background: none repeat scroll 0 0 #F3F3F3;}
+.rowalternation1td {background: none repeat scroll 0 0 #F3F3F3;border-bottom: 1px solid #EAEAEA;padding: 5px 0 5px 15px;}
+.rowalternation2td {background: none repeat scroll 0 0 #F2F7FD;border-bottom: 1px solid #EAEAEA;padding: 5px 0 5px 15px;}
+.lhead {font-weight: bold;}
+.tblcontent{border-collapse: collapse;width:100%;}
+.tblcontent td{ border:0px;}
+.length{padding-left:10px;}
+.col1{width:139px;}
+.col2{width:180px;}
+.col3{width:55px;} 

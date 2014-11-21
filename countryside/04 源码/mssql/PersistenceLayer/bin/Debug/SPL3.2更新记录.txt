@@ -1,0 +1,75 @@
+SPL自上次发布的3.1.0.5以后进行的更新有：
+1、支持MS SQL SERVER中的Bit型数据类型
+   映射到ClassMap中的类型为boolean,如：
+   <attribute name="IsOver" column="IsOver" type="boolean" />
+   对应的实体类类型为bool型，如：
+   private bool m_IsOver;	
+   public bool IsOver
+   {
+	get
+	{
+             return this.m_IsOver;
+	}
+	set
+	{
+	     this.m_IsOver = value;
+	}
+   }  
+
+   在查询时可以通过Condition进行比较判断了：
+   Codition c=....
+   c.AddEqualTo("IsOver",false);//这会最终生成 IsOver='0'的查询条件
+
+2、提供了对数据源的提供者类型的判断，这将方便区分不同的数据库提供者手动组装不同的SQL语句
+   用Setting.Instance().GetDatabaseVendor(dbName)根据dbName数据源取得数据源提供者,然后与DatabaseVendor枚举型比较
+   如Access的日期比较与Sql Server的不一致:一个采用#号，一个采用'号
+ if(Setting.Instance().GetDatabaseVendor(dbName)==DatabaseVendor.MsAccess)
+{
+	builder.Append(" and SpecialPriceD2.FromDate<=#"+itemDate.Day.ToString()+"-"+itemDate.Month.ToString()+"-"+itemDate.Year.ToString()+"#");
+	builder.Append(" and SpecialPriceD2.ToDate>=#"+itemDate.Day.ToString()+"-"+itemDate.Month.ToString()+"-"+itemDate.Year.ToString()+"#");
+}
+
+if(Setting.Instance().GetDatabaseVendor(dbName)==DatabaseVendor.MsSqlServer)
+{
+	builder.Append(" and SpecialPriceD2.FromDate<='"+itemDate.Day.ToString()+"-"+itemDate.Month.ToString()+"-"+itemDate.Year.ToString()+"'");
+	builder.Append(" and SpecialPriceD2.ToDate>='"+itemDate.Day.ToString()+"-"+itemDate.Month.ToString()+"-"+itemDate.Year.ToString()+"'");
+}
+    这个功能将为系统对多种数据库的支持最佳的灵活性，虽然SPL本身的“实体”与“标准”都可以区分不同的数据源提供者，但在需要手写SQL的地方，也需要根据不同的数据源提供者提供不同的语句执行
+
+3、修订了对所有保留字的兼容性
+   目前对所有的SPL中的操作，都加了定界符，ORACLE采用“"”号，MS的采用“[]”号，MySql的采用“`”号，所有测试都通过了
+
+4、在Condition里添加了对Null值的查询功能
+此方式只针对AddEqualTo()和AddNotEqualTo()有效：
+c.AddEqualTo("字段名",System.DBNull.Value);
+c.AddNotEqualTo("字段名",System.DBNull.Value);
+
+5、增加了对MySql数据库的支持
+  SPL对MySql的访问连接采用的是MySql提供的专用.NET connector，此驱动应该说是目前.NET连接MySql的最佳选择，在使用SPL访问MySql时，只需要安装一下此驱动即可，下载与介绍请看官方地址：http://dev.mysql.com/downloads/connector/net/1.0.html
+ 
+   使用时只需要配置DatabaseMap时类型设为“MySql”即可，如下：
+  <database name="MySqlDB" type="MySql"> 
+	<parameter name="User Id" value="root"/>
+	<parameter name="Data Source" value="localhost"/>
+	<parameter name="Database" value="mysql"/>
+	<parameter name="password" value=""/>
+	<classMapFile path="ClassMap.xml" />
+  </database>
+
+  只需这里配置后，SPL在具体应用中与其他的完全一样，测试情况：
+  实体测试--->通过
+  RetrieveCriteira、UpdateCriteria、DeleteCriteria测试--->通过
+  Transaction测试--->通过
+  自动增长主键测试--->通过
+  TOP功能测试--->通过
+
+6、对DateTime的Null值进行了处理 (3.2.0.1开始支持)
+  如果要对DateTime类型的字段赋于Null值，只需要使用DateTime.MinValue即可：
+  aEntity.CreateDate=DateTime.MinValue;
+  在SPL内部会判断如果DateTime.MinValue的话，自动保存到数据库为System.DBNull.Value,这就解决了不能给DateTime类型直接赋于System.DBNull.Value的问题。
+
+7、修订了UpdateCriteria对属性名与字段名不一致时导致的错误3.2.0.2
+原来在UpdateCriteira时没有对属性进行转化为字段名，导致在属性名与字段名不一致的情况下会找不到字段。
+
+更多关于SPL请访问：http://www.cnblogs.com/tintown/
+  

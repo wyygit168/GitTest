@@ -1,0 +1,6 @@
+﻿.tblInfor{border-collapse: collapse;border: solid 1px #66869B; font-family: Arial,Helvetica,sans-serif;font-size: 16px;font-weight: 700;}
+.tblInfor td{border: solid 1px #A1BBCC;line-height: 20px;padding: 2px 5px;text-align: left;}
+.tblInfor td.brnull{border-right:0px; border-bottom: solid 1px #A1BBCC;border-top: solid 1px #A1BBCC;border-left: solid 1px #A1BBCC;line-height: 20px;padding: 2px 5px; }
+.tblInfor td.blnull{border-left:0px;border-bottom: solid 1px #A1BBCC;border-right: solid 1px #A1BBCC;border-top: solid 1px #A1BBCC;line-height: 20px;padding: 2px 5px; }
+.tblInfor td.lhead {text-align: left;background: #EBFAFD;color: #0B3A80;font-weight: bold;}
+.tblInfor td.rhead { text-align: right; background: #EBFAFD; color: #0B3A80; white-space: nowrap; }

@@ -1,0 +1,25 @@
+F:\jasontest\CkEditorForNET\CKEditor.NET\bin\Debug\CKEditor.NET.dll
+F:\jasontest\CkEditorForNET\CKEditor.NET\bin\Debug\CKEditor.NET.pdb
+F:\jasontest\CkEditorForNET\CKEditor.NET\obj\Debug\ResolveAssemblyReference.cache
+F:\jasontest\CkEditorForNET\CKEditor.NET\obj\Debug\CKEditor.NET.dll
+F:\jasontest\CkEditorForNET\CKEditor.NET\obj\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.dll
+F:\svnjason\countryside\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.dll
+F:\svnjason\countryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.csprojResolveAssemblyReference.cache
+E:\svn\contryside\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.dll
+E:\svn\contryside\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.pdb
+E:\svn\contryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.csprojResolveAssemblyReference.cache
+E:\svn\contryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.dll
+E:\svn\contryside\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside\04 源码\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.dll
+F:\svnjason\countryside\04 源码\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside\04 源码\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.csprojResolveAssemblyReference.cache
+F:\svnjason\countryside\04 源码\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.dll
+F:\svnjason\countryside\04 源码\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.dll
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\CKEditor.NET\bin\Debug\CKEditor.NET.pdb
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.csprojResolveAssemblyReference.cache
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.dll
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\CKEditor.NET\obj\Debug\CKEditor.NET.pdb

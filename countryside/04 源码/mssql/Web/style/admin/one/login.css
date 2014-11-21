@@ -1,0 +1,10 @@
+﻿ .loginTop    {margin:auto; width:900px; height:105px; background: url(images/login/login_1.gif); text-align:center }
+ .loginTopText { font-family: Arial,Helvetica,sans-serif;font-size: 58px;font-weight: 700; letter-spacing:25px; text-indent:30px;}
+ .loginCenter { margin:auto; width:900px; height:300px; background: url(images/login/login_2.jpg); }
+ .loginBottom { margin:auto; width:900px; height:95px; background: url(images/login/login_3.jpg); }
+ .loginTable  {width:100%;  }
+ .loginTROne  {height:100px;}
+ .loginTRTwo  { font-size: 14px; color: #ffffff; font-family: 宋体; height:28px;  }
+ .btnLogin {  background: url(images/login/login_button.gif);width: 104px;height:36px;  border-style:none; cursor:pointer;  }
+ .textbox {border: #5d97cd 1px solid;height:18px; margin-left:0px;  font-family: Arial,Helvetica,sans-serif;font-size: 16px;font-weight: 700;}
+           

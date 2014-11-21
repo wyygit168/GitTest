@@ -1,0 +1,13 @@
+﻿.button { color: #fff;	height: 20px;border: 1px solid #1E5B9A;	background-color: #87BAEF;	background-image: url(Images/RightWard/clb_button.gif);	padding: 3px 1px 1px 3px;	cursor:pointer;	font-size: 12px;}
+.buttonTwo {border: #1e5b9a 0px solid; font-size: 12px; background-image: url(Images/RightWard/buttonTwo.gif);width: 100px; cursor: pointer;	color: black; padding: 2px 3px 2px 12px;height: 23px;	background-color: #ffffff} 
+.textbox {border: #5d97cd 1px solid; margin-left:0px;height:20px; line-height:21px;  font-family: Arial,Helvetica,sans-serif;font-size: 16px;font-weight: 700;/*height:20px;background-color: #f5feff*/ }
+.dropdownlist { border: 1px solid #006600; font-family: verdana; height: 20px;background: #ffffff;  }
+.readtextbox{font-family: Arial,Helvetica,sans-serif; font-size: 16px;font-weight: 700; background-color: #ededed;	border-color: #b5b5b5; border-style: solid;	border-width: 1px;height: 20px;	padding: 2px 0 0 2px;	line-height: 15px;vertical-align: middle;  }
+.highlight{color: #FF3300;}/*高亮字*/
+.greentext {color: green;} /*绿色字*/
+.bluetext {color: blue;} /*蓝色字*/
+.graytext {color: #CCC;} /*灰色字*/
+.boldtext {font-weight: bold;}/*粗体*/
+textarea{ overflow:auto;}/*去除textarea在IE当中的滚动条效果*/
+.allowRow {word-wrap: break-word; word-break: break-all;}/*允许换行 firefox 不支持英文换行 待解决*/
+.upfile { border: 1px solid #5D97CD; font-family: Arial,Helvetica,sans-serif; font-size: 16px;  height: 25px; line-height: 21px; margin-left: 0; }

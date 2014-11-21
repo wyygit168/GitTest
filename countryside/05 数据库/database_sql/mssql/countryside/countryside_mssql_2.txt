@@ -1,0 +1,271 @@
+ 
+------ 14  webmenu /*网站菜单*/ 
+------ 15  web_customer_menu /*客户网站菜单关系表*/
+------ 16  webfarmingnews  /*三农资讯*/
+------ 17  webbeautifulvillage  /*魅力乡村-乡村概述*/
+------ 18  webbeautifulvillageFile /*魅力乡村-乡村图片视频*/
+
+/*网站菜单*/
+if exists (select top 1 * from sysobjects where id = object_id(N'webmenu') and type='U')
+drop table webmenu 
+CREATE TABLE webmenu(
+  AutoID INT  NOT NULL   IDENTITY(1,1)  primary key,---COMMENT '自增长ID' 
+  Title VARCHAR(50) NOT NULL DEFAULT '',---COMMENT '标题'   
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '-1：有效，0：无效',
+  Url  VARCHAR(100) NOT NULL DEFAULT '',---COMMENT 'url 地址'  
+  Remark VARCHAR(2000) NOT NULL DEFAULT '',---COMMENT '备注' 
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+)  
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'网站菜单自增长ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'标题', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'1：有效，0：无效', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'url 地址', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'Url'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webmenu', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO 
+
+
+/*客户网站菜单关系表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'web_customer_menu ') and type='U')
+drop table web_customer_menu 
+CREATE TABLE web_customer_menu (
+  AutoID INT  NOT NULL identity(1,1) primary key,-- COMMENT '客户网站菜单关系自增长ID', 
+  MenuID  INT  NOT NULL DEFAULT 0 ,-- COMMENT '网站菜单id',  
+  CustomerID INT NOT NULL DEFAULT 0 ,-- COMMENT '客户id',   
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '1：有效，0：无效',
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  CreatorID INT  NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',-- COMMENT '修改时间',    
+)  
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户网站菜单关系自增长ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'网站菜单id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'MenuID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'1：有效，0：无效', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu ', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu ', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'web_customer_menu ', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+/*三农资讯*/
+if exists (select top 1 * from sysobjects where id = object_id(N'webfarmingnews') and type='U')
+drop table webfarmingnews 
+CREATE TABLE webfarmingnews(
+  AutoID INT  NOT NULL   IDENTITY(1,1)  primary key,---COMMENT '自增长ID'
+  CustomerID INT  NOT NULL DEFAULT 0,  --COMMENT '客户ID' 
+  Title VARCHAR(200) NOT NULL DEFAULT '',---COMMENT '标题' 
+  Content ntext  NOT NULL DEFAULT '', ---COMMENT '内容' 
+  Opertype TINYINT  NOT NULL DEFAULT '0', ---COMMENT '业务类型，0：法律法规，1：地方资讯' 
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '-1：有效，0：无效',
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  ProvinceID  INT NOT NULL  DEFAULT 0 ,--COMMENT '所属省',
+  CityID  INT NOT NULL  DEFAULT 0 ,--COMMENT '所属城市',
+  CountyID  INT NOT NULL  DEFAULT 0 ,--COMMENT '所属县',
+  TownID  INT NOT NULL  DEFAULT 0 ,--COMMENT '所属乡镇',
+  VillageID   INT NOT NULL  DEFAULT 0 ,--COMMENT '所属乡村',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+)  
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'三农资讯自增长ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'标题', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'内容', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'Content'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'业务类型，0：法律法规，1：地方资讯', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'Opertype'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'1：有效，0：无效', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属省', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属城市', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'CityID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属县', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'CountyID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属乡镇', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'TownID'
+GO 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属乡村', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'VillageID'
+GO 
+
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webfarmingnews', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+/*魅力乡村-乡村概述*/
+if exists (select top 1 * from sysobjects where id = object_id(N'webbeautifulvillage') and type='U')
+drop table webbeautifulvillage 
+CREATE TABLE webbeautifulvillage(
+  AutoID INT  NOT NULL   IDENTITY(1,1)  primary key,---COMMENT '自增长ID' 
+  Title VARCHAR(50) NOT NULL DEFAULT '',---COMMENT '标题'   
+  CustomerID INT  NOT NULL DEFAULT 0,  --COMMENT '客户ID' 
+  TownID INT  NOT NULL DEFAULT 0,  --COMMENT '乡镇ID' 
+  VillageID INT  NOT NULL DEFAULT 0,  --COMMENT '乡村ID' 
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '-1：有效，0：无效', 
+  Intro ntext NOT NULL DEFAULT '',---COMMENT '村庄介绍'   
+  Yield ntext NOT NULL DEFAULT '',---COMMENT '生产美'  
+  Live  ntext NOT NULL DEFAULT '',---COMMENT '生活美' 
+  Environment  ntext NOT NULL DEFAULT '',---COMMENT '环境美' 
+  Humanism  ntext NOT NULL DEFAULT '',---COMMENT '人文美'  
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+)  
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'魅力乡村自增长ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'魅力乡村标题', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡镇ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'TownID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡村ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'VillageID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N' 客户ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N' 1：有效，0：无效', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'村庄介绍', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Intro'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'生产美', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Yield'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'生活美', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Live'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'环境美', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Environment'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'人文美', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Humanism'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillage', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+
+
+
+/*魅力乡村-乡村图片视频*/
+if exists (select top 1 * from sysobjects where id = object_id(N'webbeautifulvillageFile') and type='U')
+drop table webbeautifulvillageFile 
+CREATE TABLE webbeautifulvillageFile(
+  AutoID INT  NOT NULL   IDENTITY(1,1)  primary key,---COMMENT '自增长ID' 
+  Title VARCHAR(50) NOT NULL DEFAULT '',---COMMENT '标题'   
+  CustomerID INT  NOT NULL DEFAULT 0,  --COMMENT '客户ID' 
+  TownID INT  NOT NULL DEFAULT 0,  --COMMENT '乡镇ID' 
+  VillageID INT  NOT NULL DEFAULT 0,  --COMMENT '乡村ID' 
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '-1：有效，0：无效', 
+  FileType VARCHAR(1)  NOT NULL DEFAULT '',---COMMENT '文件类型,0:图片，1：视频'  
+  FileUrl VARCHAR(2000) NOT NULL DEFAULT '',---COMMENT '文件存放路径' 
+  FileSUrl VARCHAR(2000) NOT NULL DEFAULT '',---COMMENT '文件缩略图存放路径'     
+  LinkUrl VARCHAR(2000) NOT NULL DEFAULT '',---COMMENT '链接地址'   
+  FileRmark  ntext NOT NULL DEFAULT '',---COMMENT '文件描述'  
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+)  
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'魅力乡村自增长ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'魅力乡村标题', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡镇ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'TownID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡村ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'VillageID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N' 客户ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N' 文件类型,0:图片，1：视频', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'FileType'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文件存放路径', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'FileUrl'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文件缩略图存放路径', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'FileSUrl'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'链接地址', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'LinkUrl'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'文件描述', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'FileRmark'
+GO
+  
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'webbeautifulvillageFile', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+

@@ -1,0 +1,11 @@
+﻿.village {background-image: url("Images/List/list_top_960_37.png"); height: 37px;width: 960px;}
+.village h1 {color: #298ECF;float: left;font-size: 18pt;font-weight: bold;padding:8px 0 0  18px;text-align: center; width: 240px;}
+.village p {color: white;font-size: 16px;font-weight: bold;line-height: 34px; padding-left: 300px;}
+.village p a {color: white;font-size: 12pt;}
+.village p a:visited {color: white;font-size: 12pt;}
+.village p a:hover {  color: white;  font-size: 12pt;}
+.villagecontent {  -moz-border-bottom-colors: none; -moz-border-image: none; -moz-border-left-colors: none; -moz-border-right-colors: none; -moz-border-top-colors: none; border-color: -moz-use-text-color #31CCEF; border-left: 1px solid #31CCEF; border-right: 1px solid #31CCEF; border-style: none solid; border-width: 0 1px; height: auto; overflow: auto;  text-align: center; width: 958px; }
+.villagedetail { -moz-user-select: none;  color: #000; float: left; font-size: 14px; height: 150px; line-height: 22px; padding: 6px 6px 6px 10px; width: 175px; }
+.villagedetail p {    margin-top: 10px; text-align: center; }
+.villagedetail p a { color: #000; }
+.villagebottom { background-image: url("Images/List/list_bottom_960_8.png"); height: 8px; width: 960px;margin-bottom:20px;}

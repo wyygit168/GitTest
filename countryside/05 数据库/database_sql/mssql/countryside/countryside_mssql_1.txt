@@ -1,0 +1,764 @@
+use countryside
+
+
+--1    systemcustomer   /*客户信息表*/ 
+--2    systemdomain  /*客户域名表*/
+--3    systemuser  /*用户信息表*/ 
+--4    systemrole /*系统角色表*/ 
+--5    systemmenu /*系统菜单表*/
+--6    system_user_role /*用户角色关系表*/
+--7    system_role_menu /*角色菜单关系表*/
+--8    system_customer_domain /*客户域名关系表*/ 
+--9    areavillage /*乡村表*/
+--10   areatown /*乡镇*/
+--11   areacounty /*县、区*/
+--12   areacity /*城市*/
+--13   areaprovince /*省*/
+
+
+
+
+/*客户信息表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'systemcustomer') and type='U')
+drop table systemcustomer
+ 
+CREATE TABLE systemcustomer (
+  AutoID INT  NOT NULL   IDENTITY(1,1)  primary key,---COMMENT '客户ID'
+  Title VARCHAR(50) NOT NULL DEFAULT '',---COMMENT '客户名称' 
+  Status TINYINT NOT NULL DEFAULT 0,  --COMMENT '客户状态-1：有效，0：无效',
+  LinkMan VARCHAR(50) NOT NULL DEFAULT '', --COMMENT '联系人',  
+  Phone VARCHAR(50) NOT NULL DEFAULT '', --COMMENT '联系电话',  
+  MobilePhone VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '移动电话',  
+  QQ VARCHAR(50) NOT NULL DEFAULT '', --COMMENT 'QQ',  
+  Fax VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT 'Fax',
+  Email VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '邮箱',  
+  Address VARCHAR(50) NOT NULL DEFAULT '', --COMMENT '地址',  
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  ProvinceID INT NOT NULL  DEFAULT 0 ,--COMMENT '所属省',
+  CityID INT NOT NULL  DEFAULT 0 ,--COMMENT '所属市',
+  CountyID INT NOT NULL  DEFAULT 0 ,--COMMENT '所属县',
+  TownID INT NOT NULL  DEFAULT 0 ,--COMMENT '所属镇',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '', --COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+)  
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户状态，-1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'联系人' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'LinkMan'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'联系电话' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Phone'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'移动电话' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'MobilePhone'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'QQ' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'QQ'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'传真Fax' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Fax'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'邮箱' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Email '
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'地址' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Address'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属省' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属城市' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'CityID'
+GO EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属县' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'CountyID'
+GO EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属镇' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'TownID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemcustomer', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO 
+
+
+/*客户域名表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'systemdomain') and type='U')
+drop table systemdomain 
+ 
+CREATE TABLE systemdomain (
+  AutoID INT  NOT NULL  IDENTITY(1,1)  primary key,--COMMENT '域名ID', 
+  Title VARCHAR(50) NOT NULL DEFAULT '', --COMMENT '域名名称',  
+  Status TINYINT  NOT NULL DEFAULT 0, --COMMENT '域名状态-1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0, --COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '', --COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0, --COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00', --COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0, --COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   --COMMENT '修改时间',
+) 
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'域名ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'域名名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'域名状态-1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemdomain', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+ 
+/*用户信息表*/ 
+if exists (select top 1 * from sysobjects where id = object_id(N'systemuser') and type='U')
+drop table systemuser 
+CREATE TABLE systemuser (
+  AutoID INT  NOT NULL    IDENTITY(1,1)  primary key,-- COMMENT '用户ID',
+  CustomerID INT  NOT NULL DEFAULT 0 ,--COMMENT '客户ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '',--COMMENT '登录名',  
+  UserPassword VARCHAR(200) NOT NULL DEFAULT '' --COMMENT '密码',  
+  RealName  VARCHAR(50) NOT NULL DEFAULT '' --COMMENT '姓名',  
+  IdentityCard  VARCHAR(50) NOT NULL DEFAULT '' --COMMENT '身份证',  
+  UserSex VARCHAR(1) NOT NULL DEFAULT '' --COMMENT '性别',  
+  Status TINYINT NOT NULL DEFAULT 0 ,--COMMENT '用户状态-1：有效，0：无效',
+  Phone VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '联系电话',  
+  MobilePhone VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '移动电话',  
+  UserQQ VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT 'QQ',  
+UserEmail VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT 'Email',  
+  Address VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '地址',  
+  OrderValue INT  NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '' ,--COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0 ,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,--COMMENT '创建时间',
+  Modifier INT NOT NULL DEFAULT 0 ,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',--COMMENT '修改时间',   
+)  
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'登录名', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'密码', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'UserPassword'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'姓名', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'RealName'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'身份证', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'IdentityCard'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'性别', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'UserSex'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户状态-1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'联系电话', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Phone'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'移动电话', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'MobilePhone'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'QQ', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'QQ'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'地址', @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Address'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemuser', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+
+
+
+/*系统角色表*/ 
+if exists (select top 1 * from sysobjects where id = object_id(N'systemrole') and type='U')
+drop table systemrole 
+CREATE TABLE systemrole (
+  AutoID INT  NOT NULL identity(1,1) primary key,-- COMMENT '系统角色ID',
+  CustomerID INT  NOT NULL DEFAULT 0 ,-- COMMENT '客户ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '' ,-- COMMENT '角色名称',  
+  Status TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '角色状态-1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0 ,-- COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '' ,-- COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00' ,--   COMMENT '修改时间',
+)  
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'系统角色ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色状态-1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemrole', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+
+/*系统菜单表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'systemmenu') and type='U')
+drop table systemmenu 
+CREATE TABLE systemmenu (
+  AutoID INT NOT NULL identity(1,1) primary key,--COMMENT '系统菜单ID',
+  CustomerID INT  NOT NULL DEFAULT 0,-- COMMENT '客户ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '菜单名称',  
+  MenuUrl VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '菜单Url', 
+  Alt  VARCHAR(200) NOT NULL DEFAULT '' ,--COMMENT '菜单描述', 
+  IsSuperAdmin   TINYINT  NOT NULL --DEFAULT 0 COMMENT '是否专属超级管理员',
+  IsTopMenu INT  NOT NULL DEFAULT 0 ,--COMMENT '是否顶级菜单，1：是， 0：不是', 
+  TopMenuID INT  NOT NULL DEFAULT 0 ,--COMMENT '所属的顶级菜单ID,二级和三级菜单所属顶级菜单ID,如是顶级菜单显示0', 
+  ParentId INT  NOT NULL DEFAULT 0 ,--COMMENT '所属的上级菜单ID，顶级菜单和二级菜单都为0',    
+  MenuType VARCHAR(1)  NOT NULL DEFAULT '' ,--COMMENT '菜单类型:0:主页面,2：分页面,1:分页面（必须要新增 修改 删除） ',    
+  Status TINYINT  NOT NULL DEFAULT 0 ,--COMMENT '菜单状态-1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '',-- COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0 ,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,--COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   ,--COMMENT '修改时间',
+    
+)  
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'系统菜单ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单Url' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'MenuUrl'
+GO
+
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单描述' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'Alt'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否专属超级管理员' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'IsSuperAdmin'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否顶级菜单，1：是， 0：不是' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'IsTopMenu'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属的顶级菜单ID,二级和三级菜单所属顶级菜单ID,如是顶级菜单显示0' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'TopMenuID'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'所属的上级菜单ID，顶级菜单和二级菜单都为0' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'ParentId'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单类型:0:主页面,2：分页面,1:分页面（不需要新增 修改 删除）' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'MenuType'
+GO
+
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单状态-1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'systemmenu', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+/*用户角色关系表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'system_user_role') and type='U')
+drop table system_user_role 
+CREATE TABLE system_user_role (
+  AutoID INT  NOT NULL identity(1,1) primary key,-- COMMENT '用户角色关系ID',
+  UserID INT  NOT NULL DEFAULT 0 ,-- COMMENT '用户id',
+  RoleID INT  NOT NULL DEFAULT 0 ,-- COMMENT '角色id',
+  CustomerID INT NOT NULL DEFAULT 0 ,-- COMMENT '客户id',  
+  CreatorID INT  NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',-- COMMENT '修改时间',    
+)  
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户角色关系ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用户id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'UserID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'RoleID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+ 
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_user_role', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+
+
+
+/*角色菜单关系表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'system_role_menu') and type='U')
+drop table system_role_menu 
+CREATE TABLE system_role_menu(
+  AutoID INT NOT NULL identity(1,1) primary key,-- COMMENT '角色菜单关系ID',    
+  RoleID INT NOT NULL DEFAULT 0 ,-- COMMENT '角色id',
+  MenuID INT NOT NULL DEFAULT 0 ,-- COMMENT '菜单id',
+  CustomerID INT  NOT NULL DEFAULT 0 ,-- COMMENT '客户id', 
+
+  IsPurview  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否有权限 1：是，0否',
+
+  IsShowMenu  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否显示菜单',
+ 
+  IsAdd  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否新增 1：是，0否',
+  IsView  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否预览 1：是，0否',
+  IsEdit  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否修改 1：是，0否',
+  IsDelete  TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否删除 1：是，0否',
+  
+  CreatorID INT  NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '修改时间',   
+) 
+Go
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色菜单关系ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'角色id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'RoleID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'菜单id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'MenuID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否显示菜单' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'IsShowMenu'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有权限 1：是，0否' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'IsPurview'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否新增 1：是，0否' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'IsAdd'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否预览 1：是，0否' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'IsView'
+GO
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否修改 1：是，0否' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'IsEdit'
+GO
+ 
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_role_menu', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+/*客户域名关系表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'system_customer_domain') and type='U')
+drop table system_customer_domain 
+CREATE TABLE system_customer_domain (
+  AutoID INT  NOT NULL identity(1,1) primary key,--COMMENT '客户域名关系ID',
+  CustomerID INT  NOT NULL DEFAULT 0 ,--COMMENT '客户ID',
+  DomainID  INT  NOT NULL DEFAULT 0 ,--COMMENT '域名ID',   
+  CreatorID INT  NOT NULL DEFAULT 0 ,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,--COMMENT '创建时间',
+  Modifier INT NOT NULL DEFAULT 0 ,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',--COMMENT '修改时间',
+)  
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户域名关系ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'客户ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'CustomerID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'域名ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'DomainID'
+GO  
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'system_customer_domain', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+/*省*/
+if exists (select top 1 * from sysobjects where id = object_id(N'areaprovince') and type='U')
+drop table areaprovince 
+CREATE TABLE areaprovince (
+  AutoID INT  NOT NULL identity(1,1) primary key,--COMMENT '省ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '' ,--COMMENT '省名称', 
+  Status TINYINT  NOT NULL DEFAULT 0 ,--COMMENT '是否有效 1：有效，0：无效',
+  OrderValue INT NOT NULL  DEFAULT 0 ,--COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '' ,--COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0 ,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,--COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   ,--COMMENT '修改时间',
+) 
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效 1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areaprovince', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+
+
+
+
+/*城市*/
+if exists (select top 1 * from sysobjects where id = object_id(N'areacity') and type='U')
+drop table areacity  
+CREATE TABLE areacity (
+  AutoID INT  NOT NULL identity(1,1) primary key,-- COMMENT '市ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '',--  COMMENT '市名称', 
+  ProvinceID INT  NOT NULL DEFAULT 0 ,-- COMMENT '省ID', 
+  Status TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否有效 1：有效，0：无效',
+  OrderValue INT NOT NULL  DEFAULT 0 ,-- COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '' ,-- COMMENT '备注',
+  CreatorID INT NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '修改时间',
+)  
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'市ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'市名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效 1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacity', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+
+/*县、区*/
+if exists (select top 1 * from sysobjects where id = object_id(N'areacounty') and type='U')
+drop table areacounty  
+CREATE TABLE areacounty (
+  AutoID INT NOT NULL identity(1,1) primary key,--COMMENT '县、区ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '',--COMMENT '县、区名称', 
+  ProvinceID INT  NOT NULL DEFAULT 0,--COMMENT '省ID', 
+  CityID INT  NOT NULL DEFAULT 0,--COMMENT '城市ID', 
+  Status TINYINT  NOT NULL DEFAULT 0,--COMMENT '是否有效 1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0,--COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '',--COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00',--COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',--COMMENT '修改时间',
+) 
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'县、区ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'县、区名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'城市ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'CityID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效 1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areacounty', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO 
+
+
+
+
+ /*乡镇*/
+if exists (select top 1 * from sysobjects where id = object_id(N'areatown') and type='U')
+drop table areatown  
+
+CREATE TABLE areatown (
+  AutoID INT NOT NULL identity(1,1) primary key,-- COMMENT '乡镇ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '',--COMMENT '乡镇名称', 
+  ProvinceID INT  NOT NULL DEFAULT 0,--COMMENT '省ID', 
+  CityID INT NOT NULL DEFAULT 0,--COMMENT '城市ID', 
+  CountyID INT  NOT NULL DEFAULT 0,--COMMENT '县ID', 
+  Status TINYINT  NOT NULL DEFAULT 0,--COMMENT '是否有效 1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0,--COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '',--COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0,--COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00',--COMMENT '创建时间',
+  Modifier INT NOT NULL DEFAULT 0,--COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00',--COMMENT '修改时间',
+)  
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡镇ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡镇名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'城市ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'CityID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'县ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'CountyID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效 1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areatown', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO 
+
+
+/*乡村表*/
+if exists (select top 1 * from sysobjects where id = object_id(N'areavillage') and type='U')
+drop table areavillage  
+
+CREATE TABLE areavillage (
+  AutoID INT  NOT NULL identity(1,1) primary key,-- COMMENT '村ID',
+  Title VARCHAR(50) NOT NULL DEFAULT '',-- COMMENT '村名称', 
+  ProvinceID INT  NOT NULL DEFAULT 0 ,-- COMMENT '省ID', 
+  CityID INT  NOT NULL DEFAULT 0 ,-- COMMENT '城市ID', 
+  CountyID INT  NOT NULL DEFAULT 0 ,-- COMMENT '县ID', 
+  TownID INT  NOT NULL DEFAULT 0 ,-- COMMENT '乡镇ID', 
+  Status TINYINT  NOT NULL DEFAULT 0 ,-- COMMENT '是否有效 1：有效，0：无效',
+  OrderValue INT  NOT NULL  DEFAULT 0 ,-- COMMENT '排序值',
+  Remark VARCHAR(4000) NOT NULL  DEFAULT '' ,-- COMMENT '备注',
+  CreatorID INT  NOT NULL DEFAULT 0 ,-- COMMENT '创建人id',
+  CreateDate DATETIME  NOT NULL  DEFAULT '2012-8-16 00:00:00' ,-- COMMENT '创建时间',
+  Modifier INT  NOT NULL DEFAULT 0 ,-- COMMENT '修改人id',
+  ModifyDate DATETIME  NOT NULL   DEFAULT '2012-8-16 00:00:00'   ,-- COMMENT '修改时间',
+)  
+GO
+
+
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'村ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'AutoID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'村名称' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'Title'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'省ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'ProvinceID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'城市ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'CityID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'县ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'CountyID'
+GO
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'乡镇ID' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'TownID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'是否有效 1：有效，0：无效' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'Status'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'排序值' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'OrderValue'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'备注' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'Remark'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'CreatorID'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'创建时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'CreateDate'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改人id' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'Modifier'
+GO
+
+ EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'修改时间' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'areavillage', @level2type=N'COLUMN',@level2name=N'ModifyDate'
+GO
+
+

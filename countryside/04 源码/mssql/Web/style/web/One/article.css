@@ -1,0 +1,13 @@
+﻿.articleList {margin-top: 10px; text-align: center;  width: 750px;margin-left: 10px;}
+.articleList .top {background: url("Images/List/list_top_749_26.gif") no-repeat scroll left top transparent;color: #2E71C2;font-size: 14px;font-weight: bold;height: 26px;line-height: 27px;text-indent: 22px;width: 749px;}
+.articleList .middle { padding-top:5px;border-left: 1px solid #6CAFF8;  text-align: left;  border-right: 1px solid #6CAFF8; width: 747px;}
+
+.articleList .middle table .QTitle {border-bottom: dashed 1px #ccc; line-height: 20px;}
+.articleList .middle table td {border-bottom: 1px dashed #6CAFF8;line-height: 20px;}
+.articleList .bottom {background: url("Images/List/list_bot_749_6.gif") no-repeat scroll left top transparent;height: 6px;width: 749px;} 
+
+.article { margin-top: 10px; text-align: center;  width: 750px;margin-left: 10px;}
+.article h1 { font-size: 18px;  text-align: center; font-weight:bold;}
+.article h2 { font-size: 14px;  font-weight: normal; text-align: center;}
+.article .head { text-align: center; width: 750px;}
+.article .body {border: 1px solid #70B0F2;height: auto; line-height: 1.5;overflow: hidden;padding: 20px;text-align: left;width: 710px; word-wrap: break-word;}

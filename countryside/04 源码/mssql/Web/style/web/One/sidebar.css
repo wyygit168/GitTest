@@ -1,0 +1,7 @@
+﻿.sidebar199 { padding-top: 5px; width: 199px;}
+.sidebar199 .top {background: url("Images/Sidebar/top.gif") no-repeat scroll center center transparent;color: #2E71C2;font-weight: bold; height: 17px;margin-top: 0;padding-top: 10px; text-indent: 24px;width: 199px;}
+.sidebar199 .middle {border-left: 1px solid #B4B4B4;border-right: 1px solid #B4B4B4;}
+.sidebar199 .middle .content ul {margin: 0;padding: 10px 0; width: 197px;}
+.sidebar199 .middle .content ul li { background:url("Images/Common/icon.gif") no-repeat scroll left center transparent;margin-left:10px;margin-top: 6px; padding-left:13px;  text-indent: 0;  white-space:nowrap;overflow:hidden;  -o-text-overflow: ellipsis; text-overflow:ellipsis;  width: 178px;}
+.sidebar199 .middle .more {margin-right: 5px;text-align: right;}
+.sidebar199 .bottom {background: url("Images/Sidebar/bot.gif") no-repeat scroll left top transparent;height: 6px;width: 199px;}

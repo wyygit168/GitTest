@@ -1,0 +1,68 @@
+﻿ #topLogin { width: 100%; font-size:12px; border-bottom: 1px solid #f1f1f1; background: #fafafa; position: fixed; z-index: 1;}
+.inside_top { width: 960px; margin: 0 auto; height: 28px; }
+.inside_top a, .inside_top a:link, .inside_top a:visited{ color: #333333; }
+.inside_top a:hover { color: #ff6600; }
+#login_bar { float: left; height: 28px; line-height: 28px; }
+.sign_in_box,.sgin_up { float: left;}
+.top_hello { float: left;margin-right: 10px;display: inline;}
+* html .top_hello,* html .sign_in_box { display: inline;}
+.sign_in_box {position: relative;margin-right: 10px;}
+.sign_in_box .set_float, .sign_in_box .set_float_on {float: left;padding: 0 6px 0 10px;border: 1px solid #fafafa;border-top: 0;border-bottom: 0;	cursor: pointer;}
+.set_float a,.set_float span,.set_float_on a,.set_float_on span {float: left;}
+* html .set_float a,* html .set_float span,* html .set_float_on a,* html .set_float_on span {display: inline;}
+.sign_in_box .set_float_on {border-left-color: #ddd;border-right-color: #ddd;background: #ffffff;height: 29px;	margin-bottom: -1px;position: relative;	z-index: 2;}
+.sign_in_down,.sign_in_up {width: 7px;	height: 4px;margin: 0 0 0 6px;top: 12px;overflow: hidden;position: relative;}
+* + html .sign_in_down,* + html .sign_in_up {top: 11px;}
+.sign_in_down img {	position: absolute;	top: -4px;left: -374px;}
+.sign_in_up img { position: absolute; top: 0; left: -374px;}
+#sign_in_form_backdrop {
+	position: absolute;	width: 268px;	height: 158px;
+	border-right: 2px solid #ddd;	border-bottom: 2px solid #ddd;
+	top: 30px;	left: 2px;	opacity: 0.6;	filter: alpha(opacity=60);
+}
+#sign_in_form_box {
+	position: absolute;	top: 28px;	left: 0px;	width: 248px;
+	height: 138px;	border: 1px solid #ddd;	background: #ffffff;	padding: 10px;
+}
+
+.sign_close {position: absolute;width: 11px;height: 11px;overflow: hidden;right: 10px;top: 10px;cursor: pointer;}
+.sign_close img {position: absolute;left: -113px;top: -78px;}
+.sign_fm {margin-left: 10px;}
+.sign_fm .item {height: 27px;} 
+.sign_fm .item input{ font-family: Arial,Helvetica,sans-serif; color: #000;}
+.sign_tip {color: #ff6600;text-align: left;margin-left: 3em;}
+.sign_fm #account,
+.sign_fm #actpwd {height: 17px;line-height: 17px;width: 125px;}
+.sign_fm #actpwd {margin-right: 10px;}
+a.sign_lostfound {color: #005bb5;}
+#rem_it_1w {margin-left: 3em;margin-right: 3px;	cursor: pointer;}
+* html #rem_it_1w {vertical-align: -1px;}
+.ri1_label { cursor: pointer;}
+.btn_sign_in {
+	float: left;margin-left: 3em;width: 59px;
+	height: 22px;margin-top: 3px;border: 0;cursor: pointer;
+	margin-right: 20px;	background: url(Images/Top/cn_common_new24.png) no-repeat 0 -60px;
+}
+* html .btn_sign_in {display: inline;margin-top: 2px;}
+*:first-child + html .btn_sign_in {	margin-top: 2px;}
+.si_set_float_wrap {overflow: hidden;}
+.wait4sign {float: left;margin-left: 3em;	margin-right: 20px;height: 28px;	overflow: hidden;}
+.wait4sign img {float: left;padding: 6px 0;margin-right: 3px;}
+a.cancel_sign {color: #005bb5; float: left;}
+* html a.cancel_sign {display: inline;}
+
+
+
+
+ 
+.topNavigation { height: auto;margin:0 auto; width: 960px;  }
+.mainmenu { background: url("Images/Top/nav_line.gif") no-repeat scroll center bottom transparent; height: 28px;    margin-top: 2px; padding-bottom: 5px;width: 960px;}
+.mainmenu a:link, a:visited {  color: #46474B; text-decoration: none;}
+.mainmenu a:hover {color:#000; font-weight:bold; cursor:pointer;}
+.mainmenuLeft { font-size: 14px;  width: 960px;  height:33px;  }
+.mainmenuLeft ul { list-style-type: none; margin: 0; padding: 0 0 0 50px; }
+.mainmenuLeft ul li { background: url("Images/Top/nav_none.gif") no-repeat scroll left top transparent; float: left;  font-weight: bold; height: 28px; line-height: 28px;  text-align: center; width: 83px; }
+.mainmenuLeft .menuSign {  background: none repeat scroll 0 0 transparent;  height: 28px;  width: 1px;}
+.mainmenuLeft .menuSel { background: url("Images/Top/nav_sel.gif") no-repeat scroll left top transparent; color: #000000;  font-weight: bold; }
+.submenu { background: url("Images/Top/nav_submenu.gif") no-repeat scroll center center transparent; height: 26px;  width: 960px; }
+a img { border-style:none;}

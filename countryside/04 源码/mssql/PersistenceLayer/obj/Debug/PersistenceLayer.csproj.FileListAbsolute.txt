@@ -1,0 +1,102 @@
+F:\JasonItem\demo\NET_Access\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\JasonItem\demo\NET_Access\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\JasonItem\demo\NET_Access\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\JasonItem\demo\NET_Access\PersistenceLayer\bin\Debug\MySql.Data.dll
+F:\JasonItem\demo\NET_Access\PersistenceLayer\bin\Debug\Oracle.DataAccess.dll
+F:\JasonItem\demo\NET_Access\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+F:\JasonItem\demo\NET_Access\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\JasonItem\demo\NET_Access\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\bin\Debug\MySql.Data.dll
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\bin\Debug\Oracle.DataAccess.dll
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\JasonItem\CharmCountry\yyNetADMINWeb\Code\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\bin\Debug\MySql.Data.dll
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\bin\Debug\Oracle.DataAccess.dll
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\JasonItem\New\CharmCountry_MySql\Admin\Code\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\countryside\01 Source code\Admin\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\countryside\01 Source code\Admin\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\countryside\01 Source code\Admin\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\countryside\01 Source code\Admin\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\countryside\01 Source code\Admin\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\countryside\01 Source code\Admin\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\百度云\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\MSSQL\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\itempletbackup\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\ResolveAssemblyReference.cache
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\wang.yu.you\item\itemtemplet\单用户\mssql\MSSQL_20130331\SourceCode\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\svnjason\countryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\svnjason\countryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\svnjason\countryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+E:\svn\contryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\svn\contryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\svn\contryside\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\svn\contryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+E:\svn\contryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\svn\contryside\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\svnjason\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\countryside\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\svnjason\countryside svn\Enterprise Architect 8.0 汉化\bin\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+F:\svnjason\WyyRepository\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.dll
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.pdb
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\bin\Debug\PersistenceLayer.xml
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.csprojResolveAssemblyReference.cache
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.dll
+E:\wang.yu.you.cn@gmail.com\countryside\04 源码\mssql\PersistenceLayer\obj\Debug\PersistenceLayer.pdb

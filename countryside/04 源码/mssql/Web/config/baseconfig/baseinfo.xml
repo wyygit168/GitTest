@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <customer id="3">
+    <logintitle value="系统" />
+  </customer>
+  <customer id="2">
+    <logintitle value="系统" />
+  </customer>
+  <customer id="0">
+    <WebTitle value="魅力梁寨" />
+    <logintitle value="魅力梁寨后台管理系统" />
+  </customer>
+  <customer id="1">
+  </customer>
+</Settings>
